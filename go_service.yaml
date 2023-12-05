@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gorpc-app-service
+spec:
+  selector:
+    app: gorpc-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 1234
+      nodePort: 30003
+  type: NodePort  # 根据需要选择 Service 的类型

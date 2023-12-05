@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gorpc-app-deployment
+spec:
+  replicas: 3  # 根据需要调整副本数量
+  selector:
+    matchLabels:
+      app: gorpc-app
+  template:
+    metadata:
+      labels:
+        app: gorpc-app
+    spec:
+      containers:
+        - name: gorpc-app
+          image: docker.io/dys12345678/rpc-go-demo:v1  # 使用你的镜像名称和版本
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 1234
